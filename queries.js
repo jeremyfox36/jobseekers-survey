@@ -15,11 +15,11 @@ const getRespondents = (req, res) => {
 const createRespondent = (req, res) => {
     const { fname, lname, email } = req.body;
 
-    pool.query('INSERT INTO respondents (fname, lname, email) VALUES ($1, $2, $3)', [fname, lname, email], (error, result) => {
+    pool.query('INSERT INTO respondents (fname, lname, email) VALUES ($1, $2, $3) RETURNING id;', [fname, lname, email], (error, result) => {
         if(error){
             throw error;
         }
-        res.status(201).send(`User added with ID: ${res.id}`)
+        res.status(201).send(`User added with ID: ${result.rows[0].id}`)
     });
 }
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Form from './Form';
 
 class App extends Component {
@@ -7,11 +6,10 @@ class App extends Component {
   
 
   //fetch respondent data after first mount
-
   render() {
-
     return (
-      <div className="App">
+      <div className="container">
+      <h1 className="text-center">Jobseekers Survey 2018</h1>
       <Form />
       </div>
     );
